@@ -19,7 +19,7 @@
 #include <stdlib.h>
 
 #ifdef FEATURE_SOUND
-#include "SDL2/SDL_mixer.h"
+#include <SDL_mixer.h>
 #endif
 
 #include "config.h"
@@ -199,7 +199,7 @@ void I_InitSound(boolean use_sfx_prefix)
          && (snd_musicdevice == SNDDEVICE_GENMIDI
           || snd_musicdevice == SNDDEVICE_GUS))
         {
-            I_InitTimidityConfig();
+            //I_InitTimidityConfig();
         }
 
         if (!nosfx)

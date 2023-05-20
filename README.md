@@ -21,11 +21,38 @@ Create a file named doomgeneric_yourplatform.c and just implement these function
 |DG_GetKey            |Provide keyboard events.
 |DG_SetWindowTitle    |Not required. This is for setting the window title as Doom sets this from WAD file.
 
+### main loop
+At start, call doomgeneric_Create().
+
+In a loop, call doomgeneric_Tick().
+
+In simplest form:
+```
+int main(int argc, char **argv)
+{
+    doomgeneric_Create(argc, argv);
+
+    while (1)
+    {
+        doomgeneric_Tick();
+    }
+    
+    return 0;
+}
+```
+
 # sound
 Sound is much harder to implement! If you need sound, take a look at SDL port. It fully supports sound and music! Where to start? Define FEATURE_SOUND, assign DG_sound_module and DG_music_module.
 
 # platforms
-Ported platforms include Windows, X11, SDL, Soso. Just look at (doomgeneric_win.c or doomgeneric_xlib.c).
+Ported platforms include Windows, X11, SDL, emscripten. Just look at (doomgeneric_win.c, doomgeneric_xlib.c, doomgeneric_sdl.c).
+Makefiles provided for each platform.
+
+## emscripten
+You can try it directly here:
+https://ozkl.github.io/doomgeneric/
+
+emscripten port is based on SDL port, so it supports sound and music! For music, timidity backend is used.
 
 ## Windows
 ![Windows](screenshots/windows.png)
